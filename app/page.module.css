@@ -1,0 +1,50 @@
+.main {
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.listBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listBarMenu {
+  display: flex;
+  justify-self: left;
+}
+
+.listBarMenu h2 {
+  margin-right: 1rem;
+}
+
+.listBarOptions {
+  display: inline-block;
+  justify-self: right;
+}
+
+.listBarOptions select {
+  border: 2px solid black;
+  border-radius: 8px;
+  margin-right: 1rem;
+  background: none;
+  cursor: pointer;
+}
+
+.listBarOptions label {
+  margin-right: 0.5rem;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
