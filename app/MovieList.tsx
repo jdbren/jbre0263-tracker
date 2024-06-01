@@ -15,7 +15,7 @@ export default function MovieList() {
           <h3 className="font-bold size-20">{movie.title}</h3>
           <p>{movie.year.toString()}</p>
           <p>{movie.rating.toString()}</p>
-          <p>{movie.date.toDateString()}</p>
+          <p>{movie.date.toString()}</p>
           <p>{movie.director}</p>
           <p>{movie.cast}</p>
           <p>{movie.review}</p>

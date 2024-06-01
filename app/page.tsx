@@ -1,9 +1,27 @@
-import Image from "next/image";
+'use client';
+import { useState } from "react";
 import styles from "./page.module.css";
 import MovieList from "./MovieList";
+import AddMenu from "./AddMenu";
+import MyButton from "./MyButton";
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
+    <>
+    <header>
+      <h1 className="text-3xl font-bold">Movie Tracker</h1>
+      <MyButton action={handleOpen}>New Movie</MyButton>
+    </header>
     <main className={styles.main}>
       <div className={styles.listBar}>
         <div className={styles.listBarMenu}>
@@ -15,13 +33,17 @@ export default function Home() {
         </div>
       </div>
       <MovieList />
+      <AddMenu isOpen={open} onClose={handleClose}>
+        <p>text</p>
+      </AddMenu>
     </main>
+    </>
   );
 }
 
 function GenreFilter() {
   return (
-    <div>
+    <div className="inline gap-1">
       <label htmlFor="genre">Genre:</label>
       <select name="genre" id="genre">
         <option>Genre</option>

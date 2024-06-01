@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import AddButton from "./AddButton.jsx";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +17,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <header>
-          <h1 className="text-3xl font-bold">Movie Tracker</h1>
-          <AddButton />
-        </header>
         {children}
       </body>
     </html>
