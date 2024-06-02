@@ -6,16 +6,8 @@ const AddMenu = ({ isOpen, onClose, children }) => {
   return (
     <div onClick={onClose} className={styles.addMenu}>
       <div
-        style={{
-          background: "white",
-          height: 150,
-          width: 240,
-          margin: "auto",
-          padding: "2%",
-          border: "2px solid #000",
-          borderRadius: "10px",
-          boxShadow: "2px solid black",
-        }}
+        className="w-1/2 bg-white p-2 border-2 border-black
+          rounded-lg shadow-lg"
       >
         {children}
       </div>

@@ -6,21 +6,15 @@ import AddMenu from "./AddMenu";
 import MyButton from "./MyButton";
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [addOpen, setAddOpen] = useState(false);
 
   return (
     <>
     <header>
       <h1 className="text-3xl font-bold">Movie Tracker</h1>
-      <MyButton action={handleOpen}>New Movie</MyButton>
+      <MyButton action={()=>{setAddOpen(true)}}>
+        New Movie
+      </MyButton>
     </header>
     <main className={styles.main}>
       <div className={styles.listBar}>
@@ -33,7 +27,7 @@ export default function Home() {
         </div>
       </div>
       <MovieList />
-      <AddMenu isOpen={open} onClose={handleClose}>
+      <AddMenu isOpen={addOpen} onClose={()=>{setAddOpen(false)}}>
         <p>text</p>
       </AddMenu>
     </main>
