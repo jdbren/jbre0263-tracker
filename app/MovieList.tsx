@@ -14,6 +14,10 @@ class MovieList extends React.Component {
       "Francis Ford Coppola", ["Marlon Brando", "Al Pacino"], ""));
   }
 
+  addMovie(movie: Movie) {
+    this.movies.push(movie);
+  }
+
   render() {
     return (
       <div className={styles.listLayout}>

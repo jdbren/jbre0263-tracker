@@ -41,11 +41,6 @@
   margin: auto;
 }
 
-.addMenu {
-  top: 0;
-  left: 0;
-}
-
 /* Mobile */
 @media (max-width: 700px) {
 
