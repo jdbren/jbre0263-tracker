@@ -2,8 +2,9 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 import MovieList from "./MovieList";
-import AddMenu from "../components/AddMenu";
-import MyButton from "../components/MyButton";
+import { Movie } from "@/app/movie";
+import AddMenu from "@/components/AddMenu";
+import MyButton from "@/components/MyButton";
 import GenreList from "@/components/GenreList";
 
 export default function Home() {
@@ -13,7 +14,7 @@ export default function Home() {
     <>
     <header>
       <h1 className="text-3xl font-bold">Movie Tracker</h1>
-      <MyButton action={()=>{setAddOpen(true)}}>
+      <MyButton action={()=>setAddOpen(true)} >
         New Movie
       </MyButton>
     </header>
@@ -27,10 +28,7 @@ export default function Home() {
           <SortBy />
         </div>
       </div>
-      <MovieList />
-      <AddMenu isOpen={addOpen} onClose={()=>{setAddOpen(false)}}>
-        <p>text</p>
-      </AddMenu>
+      <MovieList setAddOpen={setAddOpen} addOpen={addOpen} />
     </main>
     </>
   );
