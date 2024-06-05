@@ -63,3 +63,21 @@ button {
 ul {
   list-style: none;
 }
+
+input {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid black;
+  border-radius: 8px;
+  background: none;
+}
+
+textarea {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid black;
+  border-radius: 8px;
+  background: none;
+}

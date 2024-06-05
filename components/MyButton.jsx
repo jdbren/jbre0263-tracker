@@ -2,7 +2,7 @@
 
 const MyButton = ({action, children}) => {
   return(
-    <button type="button" onClick={action}>
+    <button type="button" onClick={action} className="bg-purple-400">
       {children}
     </button>
   );

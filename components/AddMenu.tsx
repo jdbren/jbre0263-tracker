@@ -1,32 +1,45 @@
-import GenreList from "@/components/GenreList";
+import styles from "@/app/page.module.css";
 
 const AddMenu = ({ isOpen, onClose, onSubmit }: {
   isOpen: boolean,
   onClose: () => void,
-  onSubmit: () => void
+  onSubmit: (data: FormData) => void
 }) => {
 
   if (!isOpen) return null;
 
   return (
     <div
-      className="w-1/2 bg-white p-2 border-2 border-black
-        rounded-lg shadow-lg"
+      className={styles.addMenu}
     >
       <form action={onSubmit}>
         <label htmlFor="title">Title: </label>
-        <input type="text" name="title" title="Movie title" />
+        <input type="text" name="title" title="Movie title" required/>
         <br />
         <label htmlFor="release-year">Released: </label>
-        <input type="number" name="release-year" title="Release year" />
+        <input type="number" name="release-year" title="Release year" required/>
         <br />
-        <GenreList />
+        <label htmlFor="genre">Genre: </label>
+        <select name="genre" id="genre" className="border-2 border-solid" required>
+          <option>Genre</option>
+          <option>Action</option>
+          <option>Comedy</option>
+          <option>Drama</option>
+          <option>Documentary</option>
+          <option>Family</option>
+          <option>Fantasy</option>
+          <option>Horror</option>
+          <option>Mystery</option>
+          <option>Romance</option>
+          <option>Sci-Fi</option>
+          <option>Thriller</option>
+        </select>
         <p> </p>
         <label htmlFor="runtime">Runtime: </label>
-        <input type="number" name="runtime" title="Duration" />
+        <input type="number" name="runtime" title="Duration" required/>
         <br />
         <label htmlFor="rating">Rating: </label>
-        <input type="number" name="rating" title="Rating" />
+        <input type="number" name="rating" title="Rating" required/>
         <br />
         <label htmlFor="director">Director: </label>
         <input type="text" name="director" title="Director" />
@@ -37,8 +50,8 @@ const AddMenu = ({ isOpen, onClose, onSubmit }: {
         <label htmlFor="comments" className="block">Comments: </label>
         <textarea name="comments" title="Comments" />
         <br />
-        <button type="button" onClick={onClose}>Cancel</button>
-        <button type="submit">Confirm</button>
+        <button type="button" className="bg-red-500" onClick={onClose}>Cancel</button>
+        <button type="submit" className="bg-green-600">Confirm</button>
       </form>
     </div>
   );
