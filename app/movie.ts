@@ -1,5 +1,14 @@
+/**
+ * Implements the Movie data object.
+ */
+
 import { v4 as uuidv4 } from 'uuid';
 
+/**
+ * Queries the Movie Database API for the image URL of the movie.
+ * @param name
+ * @returns the image URL of the movie
+ */
 async function getImage(name: string): Promise<string> {
   let url = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&';
   const options = {
@@ -22,17 +31,20 @@ async function getImage(name: string): Promise<string> {
   }
 
   let json = await res.json();
-  
+
   return json.results[0].poster_path;
 }
 
+/**
+ * Represents a general media object.
+ */
 class Media {
   uuid;
   title;
   imageUrl: string;
   relYear;
   rating;
-  date;
+  date; // Date added
   genre;
 
   constructor(title: string, year: number, rating: number, genre: string, uuid: string = '') {
@@ -54,6 +66,9 @@ class Media {
   }
 }
 
+/**
+ * Movie specific data object.
+ */
 export class Movie extends Media {
   director;
   cast;
@@ -72,6 +87,9 @@ export class Movie extends Media {
   }
 }
 
+/**
+ * TV Show specific data object, did not finish implementation.
+ */
 export class TVShow extends Media {
   season;
   creator;

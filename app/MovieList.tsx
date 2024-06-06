@@ -1,10 +1,17 @@
+/**
+ * MovieList.tsx
+ *
+ * React components for displaying a list of movies.
+ */
+
 import styles from "./page.module.css";
 import React, { use, useEffect } from 'react';
 import { Movie } from './movie';
 import Image from "next/image";
 
-
-
+/**
+ * Component for displaying a single movie.
+ */
 function MovieComponent({ movie, deleteMovie }: {
   movie: Movie ,
   deleteMovie: (uuid: string) => void
@@ -32,7 +39,11 @@ function MovieComponent({ movie, deleteMovie }: {
   );
 }
 
-
+/**
+ * Component for displaying a list of movies. Props are the list of movies,
+ * the sort order, the genre filter, and a function to delete a movie. After
+ * sorting and filtering, the list is displayed as a series of MovieComponents.
+ */
 const MovieList = ({ movies, sortBy, genreFilter, deleteMovie }: {
   movies: Array<Movie>,
   sortBy: string,
@@ -66,7 +77,6 @@ const MovieList = ({ movies, sortBy, genreFilter, deleteMovie }: {
     list.sort((a, b) => (new Date(a.date).getTime() -
       new Date(b.date).getTime()));
   }
-  else if (sortBy)
 
   // Filter the movies based on the selected genre
   console.log("Genre Filter: " + genreFilter);

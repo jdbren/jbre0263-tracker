@@ -1,3 +1,6 @@
+/**
+ * Genre selection dropdown list for filtering movies by genre.
+ */
 export default function GenreList({ setGenreFilter }) {
   function eventHandler(event) {
     setGenreFilter(event.target.value);

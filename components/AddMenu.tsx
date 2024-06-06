@@ -1,5 +1,16 @@
+/**
+ * AddMenu component for adding a new movie to the list.
+ */
+
 import styles from "@/app/page.module.css";
 
+/**
+ * Opens a form to add a new movie to the list. On submit, the form data is passed
+ * to createMovie() in page.tsx.
+ * @param isOpen - Whether the form is open or not.
+ * @param onClose - Function to close the form.
+ * @param onSubmit - Function to submit the form data.
+ */
 const AddMenu = ({ isOpen, onClose, onSubmit }: {
   isOpen: boolean,
   onClose: () => void,

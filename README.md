@@ -1,3 +1,43 @@
+## Movie Tracker
+
+This is a simple web app that allows users to add and remove movies in
+a list. It works better on desktop but should be usable on mobile. I
+would have liked to improve the style, but it implements the general
+requirements. It is viewable on GitHub pages. The repository is
+https://github.com/jdbren/jbre0263-tracker.
+
+## Development Notes
+
+I decided to use Next.js because of a recommendation from someone at
+the company I just started interning with (it is summer in the US). I
+later realized that this framework was far more complex than necessary
+for this project, and uses unnessary features like server-side rendering.
+I also underestimated the time necessary to learn React, and there are
+possibly improper uses causing hydration error. Next will automatically
+switch to client-side rendering which solves most of the issues, however.
+
+The main file is app/page.tsx which lays out the HTML for the root.
+There are several other React components, mainly MovieList and AddMenu
+which are responsible for displaying the movies and adding new movies,
+respectively. The data is stored between sessions in local storage (I think
+loading this data is causing some of the SSR issues). The data model uses a
+Movie object with all of the necessary information. It also retrieves a
+poster jpg url from The Movie Database by querying the movie title.
+
+## Frameworks and Dependencies
+- Next.js
+- TypeScript: Found this easier to use with React.
+- TailwindCSS: allows easy inline CSS within jsx elements
+- React.js: Underlies Next.js for building components and state updates
+
+## Building and Testing
+See below for running. Next.js automatically sets up the backend Node server.
+Production build is created through npm run build and then npm run start.
+
+
+
+## Next.js Information
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

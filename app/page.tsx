@@ -1,3 +1,9 @@
+/**
+ * page.tsx
+ *
+ * React component for the main page of the Movie Tracker app.
+ */
+
 'use client';
 import { useState } from "react";
 import styles from "./page.module.css";
@@ -7,12 +13,14 @@ import MyButton from "@/components/MyButton";
 import GenreList from "@/components/GenreList";
 import AddMenu from "@/components/AddMenu";
 
+// Load stored movies from local storage
 var storedMovies: Array<Movie> = [];
 var reference = null;
 if (typeof window !== 'undefined')
   reference = localStorage.getItem('movies');
 console.log("Storage: " + reference);
 
+// Parse stored movies from JSON
 if (reference !== null) {
   storedMovies = JSON.parse(reference).map((m: Movie) => {
     return new Movie(
@@ -29,12 +37,16 @@ if (reference !== null) {
   });
 }
 
+// Main page component (HTML structure)
 export default function Home() {
+  // State variables for buttons, selectors, and movie list
   const [addOpen, setAddOpen] = useState(false);
   const [movies, setMovies] = useState(storedMovies);
   const [genreFilter, setGenreFilter] = useState('Genre');
   const [sortBy, setSortBy] = useState('Title');
 
+  // Create a new movie object from form data and add to list
+  // Save updated list to local storage
   function createMovie(formData: FormData) {
     let movie = new Movie(
       (formData.get("title") ?? "").toString(),
@@ -56,6 +68,8 @@ export default function Home() {
     }
   }
 
+  // Delete a movie from the list by UUID, save updated list
+  // to local storage. Called by button click in MovieList.
   function deleteMovie(uuid: string) {
     const updatedMovies = movies.filter((m) => m.uuid !== uuid);
     setMovies(updatedMovies);
@@ -94,6 +108,9 @@ export default function Home() {
   );
 }
 
+/**
+ * Selector component for how to sort the movie list.
+ */
 function SortBy({ setSortBy }: {
   setSortBy: (str: string) => void
 }) {
