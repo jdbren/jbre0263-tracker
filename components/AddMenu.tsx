@@ -49,7 +49,8 @@ const AddMenu = ({ isOpen, onClose, onSubmit }: {
           <option>Sci-Fi</option>
           <option>Thriller</option>
         </select>
-        <label htmlFor="runtime">Runtime: </label>
+        <br />
+        <label htmlFor="runtime">Runtime (minutes): </label>
         <input type="number" name="runtime" title="Duration"
           required min='0'
         />
