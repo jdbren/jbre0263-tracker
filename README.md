@@ -1,4 +1,4 @@
-## Movie Tracker
+## Overview
 
 This is a simple web app that allows users to add and remove movies in
 a list. It works better on desktop but should be usable on mobile. I
@@ -34,6 +34,21 @@ poster jpg url from The Movie Database by querying the movie title.
 See below for running. Next.js automatically sets up the backend Node server.
 Production build is created through npm run build and then npm run start.
 
+## Features
+- Adding and removing movies
+- Posters that are based on the movie title entered (issues with loading these
+sometimes)
+- Sorting by various metrics
+- Filtering a specific genre of movies
+
+## Sources
+- The Movie Database (https://developer.themoviedb.org/reference/intro/getting-started)
+- Next.js (https://nextjs.org/docs) including initial project outline
+- React.js (https://react.dev/reference/react)
+- TailwindCSS (https://tailwindcss.com/docs/installation)
+
+## AI Usage Acknowledgement
+I used Github Copilot throughout development.
 
 
 ## Next.js Information
