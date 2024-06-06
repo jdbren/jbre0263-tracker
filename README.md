@@ -31,7 +31,8 @@ poster jpg url from The Movie Database by querying the movie title.
 - React.js: Underlies Next.js for building components and state updates
 
 ## Building and Testing
-See below for running. Next.js automatically sets up the backend Node server.
+First run: npm install. Next.js automatically sets up the backend Node server.
+Can run: npm run dev
 Production build is created through npm run build and then npm run start.
 
 ## Features
