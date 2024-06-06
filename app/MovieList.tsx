@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import React, { use, useEffect } from 'react';
 import { Movie } from './movie';
+import Image from "next/image";
 
 
 
@@ -12,17 +13,20 @@ function MovieComponent({ movie, deleteMovie }: {
 
   return (
     <div id={movie.title}>
-      <img src={movie.imageUrl} alt={movie.title}
-        style={{ display: imgLoaded ? 'block' : 'none' }}
-        onLoad={() => setImgLoaded(true)}
-      />
+      {movie.imageUrl ?
+        <img src={movie.imageUrl} alt={movie.title}
+          style={{ display: imgLoaded ? 'block' : 'none' }}
+          onLoad={() => setImgLoaded(true)}
+        /> :
+        <Image src="/default.png" alt={movie.title} width='200' height='300' />
+      }
       <h3 className="font-bold">{movie.title}</h3>
       <p className="italic">{movie.relYear} {movie.runtime}m</p>
       <p>Rating: {movie.rating}/10</p>
       <p>{movie.genre}</p>
-      <p>Directed by {movie.director}</p>
-      <p>Starring {movie.cast}</p>
-      <p>Comments: {movie.review}</p>
+      <p>Directed by: {movie.director}</p>
+      <p>Starring: {movie.cast}</p>
+      {movie.review && <p>Comments: {movie.review}</p>}
       <button type='button' onClick={() => deleteMovie(movie.uuid)}>Delete</button>
     </div>
   );

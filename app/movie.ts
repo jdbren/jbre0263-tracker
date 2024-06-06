@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 async function getImage(name: string): Promise<string> {
-  let url = 'https://api.themoviedb.org/3/search/movie?';
+  let url = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&';
   const options = {
     method: 'GET',
     headers: {
@@ -22,7 +22,7 @@ async function getImage(name: string): Promise<string> {
   }
 
   let json = await res.json();
-
+  
   return json.results[0].poster_path;
 }
 

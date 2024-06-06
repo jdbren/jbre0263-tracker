@@ -10,7 +10,7 @@ import AddMenu from "@/components/AddMenu";
 var storedMovies: Array<Movie> = [];
 var reference = null;
 if (typeof window !== 'undefined')
-  reference = localStorage.getItem('test4');
+  reference = localStorage.getItem('movies');
 console.log("Storage: " + reference);
 
 if (reference !== null) {
@@ -52,7 +52,7 @@ export default function Home() {
     setMovies(updatedMovies);
 
     if (typeof window !== 'undefined') {
-      localStorage.setItem('test4', JSON.stringify(updatedMovies));
+      localStorage.setItem('movies', JSON.stringify(updatedMovies));
     }
   }
 
@@ -60,14 +60,14 @@ export default function Home() {
     const updatedMovies = movies.filter((m) => m.uuid !== uuid);
     setMovies(updatedMovies);
     if (typeof window !== 'undefined') {
-      localStorage.setItem('test4', JSON.stringify(updatedMovies));
+      localStorage.setItem('movies', JSON.stringify(updatedMovies));
     }
   }
 
   return (
     <>
       <header>
-        <h1 className="text-3xl font-bold">Movie Tracker</h1>
+        <h1 className="text-3xl font-bold text-purple-500">Movie Tracker</h1>
         <MyButton action={()=>setAddOpen(true)} >
           New Movie
         </MyButton>

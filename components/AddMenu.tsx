@@ -12,15 +12,19 @@ const AddMenu = ({ isOpen, onClose, onSubmit }: {
     <div
       className={styles.addMenu}
     >
-      <form action={onSubmit}>
+      <form action={onSubmit} className="space-y-2">
         <label htmlFor="title">Title: </label>
         <input type="text" name="title" title="Movie title" required/>
         <br />
         <label htmlFor="release-year">Released: </label>
-        <input type="number" name="release-year" title="Release year" required/>
+        <input type="number" name="release-year" title="Release year"
+          required min='1900'
+        />
         <br />
         <label htmlFor="genre">Genre: </label>
-        <select name="genre" id="genre" className="border-2 border-solid" required>
+        <select name="genre" id="genre" className="border-2 border-solid w-1/8"
+          required
+        >
           <option>Genre</option>
           <option>Action</option>
           <option>Comedy</option>
@@ -34,12 +38,15 @@ const AddMenu = ({ isOpen, onClose, onSubmit }: {
           <option>Sci-Fi</option>
           <option>Thriller</option>
         </select>
-        <p> </p>
         <label htmlFor="runtime">Runtime: </label>
-        <input type="number" name="runtime" title="Duration" required/>
+        <input type="number" name="runtime" title="Duration"
+          required min='0'
+        />
         <br />
         <label htmlFor="rating">Rating: </label>
-        <input type="number" name="rating" title="Rating" required/>
+        <input type="number" name="rating" title="Rating"
+          required min='0' max='10'
+        />
         <br />
         <label htmlFor="director">Director: </label>
         <input type="text" name="director" title="Director" />
@@ -52,6 +59,7 @@ const AddMenu = ({ isOpen, onClose, onSubmit }: {
         <br />
         <button type="button" className="bg-red-500" onClick={onClose}>Cancel</button>
         <button type="submit" className="bg-green-600">Confirm</button>
+        <br />
       </form>
     </div>
   );

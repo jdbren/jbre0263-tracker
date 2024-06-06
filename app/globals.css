@@ -71,6 +71,7 @@ input {
   border: 2px solid black;
   border-radius: 8px;
   background: none;
+  width: 60%;
 }
 
 textarea {
